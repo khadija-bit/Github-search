@@ -1,12 +1,26 @@
-<div class="container h-100">
-    <div class="d-flex justify-content-center h-100">
-      <div class="searchbar">
-        <input class="search_input" type="text" name="" placeholder="Search...">
-        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-      </div>
-      
-    </div>
+  <div class="container">
+    <ng-progress></ng-progress>
+    <h1>github user</h1>
+    <app-deep-form (searchIn)="search($event)"></app-deep-form>
+    <hr>
+    <ul>
+        <p *ngFor='let user of users'>
+          <li appStrikethrough>{{user.name}}</li>
+          <li>{{user.login}}</li>
+          <li>{{user.html_url}}</li>
+          <li>{{user.public_repos}}</li>
+          <li>{{user.followers}}</li>
+          <li>{{user.following}}</li>
+
+        
+          <P *ngFor='let repository of repositorys'>
+          {{repository.name}}
+          <li>{{repository.html_url}}</li>
+          <li>{{repository.description}}</li>
+        </P>
+        
+   </ul>
   </div>
-  <div>
+  
 
   

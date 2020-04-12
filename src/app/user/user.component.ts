@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubService } from '../github-service/github.service';
-import { User } from '../user';
+import { User } from '../user';;
 import { Repository } from '../repository';
+
 
 
 @Component({
@@ -10,26 +11,42 @@ import { Repository } from '../repository';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  // users:User[] = [
-  //   new User('','b', '', 0, 0, 0),
-  // ];
-
-  // repository:Repository[] = [
-  //   new Repository('b','','',),
-  // ];
-
+  searchUser = true
+  users:User;
+  repositorys:Repository;
+  searchName: string;  
   
 
 
-  constructor() {
-    
-   }
-   search(){
+  constructor(private githubService:GithubService, private repoService: GithubService) {
 
    }
+   
+   search(searchName:string){
+    this.githubService.getUser(searchName).then(
+      (_success) => {
+        this.users = this.githubService.founderUser;
+      },
+      (error) => {
+        console.log(error)
+      }
+    );
+    this.repoService.getRepos(searchName ).then(
+      (_results) => {
+        this.repositorys = this.repoService.repository
+        console.log(this.repositorys)
+        
+      },
+      (error) => {
+        console.log(error)
+      }
+    );
+    }
+  
+   
 
   ngOnInit() {
-    
+    this.search('khadija-bit');
   }
 
 }

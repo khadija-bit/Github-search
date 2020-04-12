@@ -1,1 +1,14 @@
-<p>hello</p>
+<div class="container">
+    <h1>github user</h1>
+    <hr>
+    <ul>
+      <app-deep-form> (searchRepo)="search($event)"</app-deep-form>
+
+<h2>repository</h2>
+<P *ngFor='let repository of repositorys'>
+{{repository.name}}
+<li>{{repository.url}}</li>
+<li>{{repository.description}}</li>
+</P>
+
+</ul>

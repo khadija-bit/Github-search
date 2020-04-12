@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Repository } from '../repository';
+import { GithubService } from '../github-service/github.service';
+import { error } from 'protractor';
 
 @Component({
   selector: 'app-repository',
@@ -6,12 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./repository.component.css']
 })
 export class RepositoryComponent implements OnInit {
+  searchUser = true;
+  repositorys:Repository;
 
+ 
+  constructor(public repoService: GithubService) { }
 
+  searchRepo(searchName){
+    this.repoService.getRepos('searchName: string').then(
+      (results) =>{
+        this.repositorys = this.repoService.repository
+        console.log(this.repositorys);
 
-  constructor() { }
-
+      },
+      (error)=>{
+        console.log(error);
+      }
+    );
+  }
   ngOnInit() {
-  
+    this.searchRepo('khadija-bit');
   }
 }
