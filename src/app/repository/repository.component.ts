@@ -20,9 +20,9 @@ export class RepositoryComponent implements OnInit {
         this.repositorys = this.repoService.repository
         console.log(this.repositorys);
 
-      // },
-      // (error)=>{
-      //   console.log(error);
+      },
+      (error)=>{
+        console.log(error);
       }
     );
   }
