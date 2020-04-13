@@ -6,18 +6,18 @@ Khadija Hassan
 # Description
 This Angular application where one enter a github username in search button. they can see also see the person they are searching for repositories.
 
+# Setup instruction/ Installation
+git clone https://github.com/khadija-bit/Github-search.git
+
+# Contact Information
+Any feedback contact this email  sumeyahassan34@gmail.com
+
 # Technology used
 * HTML5 
 * CSS
 * Typescript
 * Angular-CLI9
 * Netlify
-
-# Setup instruction/ Installation
-git clone https://github.com/khadija-bit/Github-search.git
-
-# Contact Information
-Any feedback contact this email  sumeyahassan34@gmail.com
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
