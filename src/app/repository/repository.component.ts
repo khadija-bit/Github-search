@@ -27,6 +27,6 @@ export class RepositoryComponent implements OnInit {
     );
   }
   ngOnInit() {
-    this.searchRepo('khadija-bit');
+    // this.searchRepo('khadija-bit');
   }
 }
