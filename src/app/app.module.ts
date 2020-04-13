@@ -13,6 +13,7 @@ import { StrikethroughDirective } from './strikethrough.directive';
 import { DeepFormComponent } from './deep-form/deep-form.component';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
     RepositoryComponent,
     NavbarComponent,
     StrikethroughDirective,
-    DeepFormComponent
+    DeepFormComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
