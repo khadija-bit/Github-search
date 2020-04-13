@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Repository } from '../repository';
 import { GithubService } from '../github-service/github.service';
-import { error } from 'protractor';
+
 
 @Component({
   selector: 'app-repository',
@@ -16,8 +16,7 @@ export class RepositoryComponent implements OnInit {
   constructor(public repoService: GithubService) { }
 
   searchRepo(searchName){
-    this.repoService.getRepos('searchName: string').then(
-      (results) =>{
+    this.repoService.getRepos('searchName').then( results =>{
         this.repositorys = this.repoService.repository
         console.log(this.repositorys);
 

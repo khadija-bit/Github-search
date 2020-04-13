@@ -11,10 +11,10 @@ import { Repository } from '../repository';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  searchUser = true
+  searchUser = true;
   users:User;
   repositorys:Repository;
-  searchName: string;  
+  // searchName: string;  
   
 
 
@@ -26,19 +26,20 @@ export class UserComponent implements OnInit {
     this.githubService.getUser(searchName).then(
       (_success) => {
         this.users = this.githubService.founderUser;
+        console.log(this.users);
       },
       (error) => {
-        console.log(error)
+        console.log(error);
       }
     );
     this.repoService.getRepos(searchName ).then(
       (_results) => {
         this.repositorys = this.repoService.repository
-        console.log(this.repositorys)
+        console.log(this.repositorys);
         
       },
       (error) => {
-        console.log(error)
+        console.log(error);
       }
     );
     }
