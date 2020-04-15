@@ -11,13 +11,13 @@ import { GithubService } from '../github-service/github.service';
 export class RepositoryComponent implements OnInit {
   searchUser = true;
   repositorys:Repository;
-
+  searchName: string;
  
-  constructor(public repoService: GithubService) { }
+  constructor(public repoService: GithubService, private githubService: GithubService) { }
 
   searchRepo(searchName){
-    this.repoService.getRepos('searchName').then( results =>{
-        this.repositorys = this.repoService.repository
+    this.repoService.getRepos(searchName).then( results =>{
+        this.repositorys = this.repoService.repo
         console.log(this.repositorys);
 
       },

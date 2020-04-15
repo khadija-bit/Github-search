@@ -14,6 +14,7 @@ import { DeepFormComponent } from './deep-form/deep-form.component';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { DatePipesPipe } from './date-pipes.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NavbarComponent,
     StrikethroughDirective,
     DeepFormComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DatePipesPipe
   ],
   imports: [
     BrowserModule,

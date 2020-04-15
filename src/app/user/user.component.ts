@@ -14,7 +14,7 @@ export class UserComponent implements OnInit {
   searchUser = true;
   users:User;
   repositorys:Repository;
-  // searchName: string;  
+  searchName: string;  
   
 
 
@@ -22,9 +22,9 @@ export class UserComponent implements OnInit {
 
    }
    
-   search(searchName:string){
+   search(searchName){
     this.githubService.getUser(searchName).then(
-      (_success) => {
+      success => {
         this.users = this.githubService.founderUser;
         console.log(this.users);
       },
@@ -33,8 +33,8 @@ export class UserComponent implements OnInit {
       }
     );
     this.repoService.getRepos(searchName ).then(
-      (_results) => {
-        this.repositorys = this.repoService.repository
+      results => {
+        this.repositorys = this.repoService.repo
         console.log(this.repositorys);
         
       },

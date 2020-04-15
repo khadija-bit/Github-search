@@ -1,17 +1,23 @@
-<div class="jumbotron">
-  <h1>Github Search Repo</h1>
-  <hr>
-   <ul>
-      <app-deep-form> (searchRepo)="search($event)"</app-deep-form>
 
- <div class="container">
-    <div class="card" *ngFor="let repository of repositorys">
-       <div *ngIf='searchUser'>
-        <li>{{repository.name}}</li>
-        <li>{{repository.html_url}}</li>
-        <li>{{repository.description}}</li>
+<div class="jumbotron">
+   <h3 class="card-header text-center" >Repositories</h3>
+   <app-deep-form> (searchRepo)="search($event)"</app-deep-form>
+       <div class="card" *ngFor='let repository of repositorys'>
+         <div class="card-row">
+           <div class="card-header text-center"><h4>{{repository.name}}</h4>
+             <div class="card-body">
+               <div class="" >
+                 <div class="col">
+                   
+                   <p>{{repository.description}}</p>
+                   <p>{{repository.language}}</p>
+                     <span ><a href="{{repository.html_url}}" class="btn btn-success">View More</a></span>
+                   
+                 </div>
+               
+               </div>
+             </div>
+           </div>
+         </div>
        </div>
-    </div>
-  </div>
- </ul>
-</div>
+ </div>

@@ -10,12 +10,13 @@ import { Repository } from '../repository';
 })
 export class GithubService {
   founderUser: User;
-  repository: Repository;
+  repo: Repository;
+  access_token: string = environment.access_token;
   searchName: string;
 
   constructor(private http:HttpClient) {
-    this.founderUser = new User('','', 0, 0, 0);
-    this.repository = new Repository('','','');
+    this.founderUser = new User('','','','','', 0, 0, 0,new Date());
+    this.repo = new Repository('','','',new Date());
    }
  
   getRepos(searchName: string) {
@@ -24,55 +25,61 @@ export class GithubService {
       name: string;
       html_url: string;
       description: string;
+      created_at: Date;
       
     }
     return new Promise((resolve,reject)=>{
-      this.http.get<ApiResponse>('https://api.github.com/users'+searchName+'?access_token='+environment.apiKey).toPromise().then(
-        (results) =>{
-          this.repository = results;
+      this.http.get<ApiResponse>('https://api.github.com/users/'+ searchName + '/repos?access_token=' + environment.access_token).toPromise().then(
+        result =>{
+          this.repo = result;
+          console.log(this.repo)
           resolve();
 
         },
         (error) =>{
-          console.log(error);
+          console.log(error)
           reject();
         }
-          );
+      );
     });
+    
   }
 
 
    getUser(searchName: string){
 
     interface ApiResponse{
+      avatar_url: string;
       login: string;
       name: string;
+      email: string;
       html_url: string;
       public_repos: number;                       
       followers: number;
       following: number;
       searchName: string;
+      created_at: Date;
     }
 
     
     
     
 
-    return new Promise((resolve,reject)=>{
-      this.http.get<ApiResponse>('https://api.github.com/users'+searchName+'?access_token='+environment.apiKey).toPromise().then(
-      (result) =>{
+    return new Promise((resolve,reject)=> {
+      this.http.get<ApiResponse>( 'https://api.github.com/users/'+ searchName + '?access_token=' + environment.access_token).toPromise().then(
+        (result) => {
        this.founderUser = result;
        console.log(this.founderUser);
 
         resolve()
       },
-      error=>{
-       console.log(error)
-        reject(error);
-      })
-    })
-    // return Promise
+      error => {
+       console.log(error);
+
+        reject()
+      });
+    });
+    
   }
+
 }
-
-
