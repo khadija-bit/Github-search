@@ -1,6 +1,7 @@
   <div class="container">
+    <link href="https://fonts.googleapis.com/css?family=Lemonada&display=swap" rel="stylesheet">
     <ng-progress></ng-progress>
-    <h1>github user</h1>
+ 
     <app-deep-form (searchIn)="search($event)"></app-deep-form>
     <div class="container" *ngIf='searchUser'>
             <div class="card-body">
@@ -14,10 +15,11 @@
                     <li class="list-group-item">{{users.created_at | datePipes}}</li>
                   </ul>
                         <div class="profile">
-                          <span class="btn btn-success"> PUBLIC REPO  {{users.public_repos}}</span>
+                          <span class="btn btn-info"> PUBLIC REPO  {{users.public_repos}}</span>
                           <span class="btn btn-primary"> FOLLOWERS {{users.followers}}</span> 
                           <span class="btn btn-info">FOLLOWING {{users.following}}</span>
                       </div>
+                      <span ><a href="{{users.html_url}}" class="btn btn-success">View Profile</a></span>
                 </div>
         
            

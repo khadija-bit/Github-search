@@ -1,3 +1,10 @@
+.container{
+    background-image: url('https://images.unsplash.com/photo-1559065188-2537766d864b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Lemonada', cursive;
+}
 .searchbar{
     margin-bottom: auto;
     margin-top: auto;

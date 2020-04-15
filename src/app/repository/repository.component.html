@@ -1,12 +1,14 @@
 
 <div class="jumbotron">
+   <link href="https://fonts.googleapis.com/css?family=Lemonada&display=swap" rel="stylesheet">
    <h3 class="card-header text-center" >Repositories</h3>
    <app-deep-form> (searchRepo)="search($event)"</app-deep-form>
-       <div class="card" *ngFor='let repository of repositorys'>
+   <div *ngIf="searchRepo">
+      <div class="card" *ngFor='let repository of repositorys'>
          <div class="card-row">
            <div class="card-header text-center"><h4>{{repository.name}}</h4>
              <div class="card-body">
-               <div class="" >
+               <div class="row" >
                  <div class="col">
                    
                    <p>{{repository.description}}</p>
@@ -20,4 +22,6 @@
            </div>
          </div>
        </div>
+   </div>
+       
  </div>
