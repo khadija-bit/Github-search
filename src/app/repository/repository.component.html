@@ -1,27 +1,30 @@
-
 <div class="jumbotron">
    <link href="https://fonts.googleapis.com/css?family=Lemonada&display=swap" rel="stylesheet">
-   <h3 class="card-header text-center" >Repositories</h3>
-   <app-deep-form> (searchRepo)="search($event)"</app-deep-form>
-   <div *ngIf="searchRepo">
-      <div class="card" *ngFor='let repository of repositorys'>
-         <div class="card-row">
-           <div class="card-header text-center"><h4>{{repository.name}}</h4>
-             <div class="card-body">
-               <div class="row" >
-                 <div class="col">
-                   
-                   <p>{{repository.description}}</p>
-                   <p>{{repository.language}}</p>
-                     <span ><a href="{{repository.html_url}}" class="btn btn-success">View More</a></span>
-                   
-                 </div>
-               
+   <app-deep-form>(repoSearch)="Search($event)" </app-deep-form>
+   <h3 class="card-header text-center">Repositories</h3>
+   <div class="card" *ngFor='let repository of repositorys'>
+       <div class="card-row">
+           <div class="card-header text-center">
+               <h4>{{repository.name}}</h4>
+               <div class="card-body">
+                   <div class="">
+                       <div class="col">
+                           <p>{{repository.description}}</p>
+                           <p>{{repository.language}}</p>
+                           <button class="btn btn-warning">Watcher: {{repository.watchers}}</button>
+                           <button class="btn btn-primary">Forkers: {{repository.forks}}</button>
+                           <p>Created: {{repository.created_at | datePipes}}</p>
+                           <span><a href="{{repository.html_url}}" class="btn btn-success">View More</a></span>
+
+                       </div>
+
+                   </div>
                </div>
-             </div>
            </div>
-         </div>
        </div>
    </div>
-       
- </div>
+</div>
+
+
+
+ 

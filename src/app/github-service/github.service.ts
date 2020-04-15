@@ -16,7 +16,7 @@ export class GithubService {
 
   constructor(private http:HttpClient) {
     this.founderUser = new User('','','','','', 0, 0, 0,new Date());
-    this.repo = new Repository('','','',new Date());
+    this.repo = new Repository('','','',0,0,new Date());
    }
  
   getRepos(searchName: string) {
@@ -25,13 +25,15 @@ export class GithubService {
       name: string;
       html_url: string;
       description: string;
+      watchers: number;
+      forks: any;
       created_at: Date;
       
     }
     return new Promise((resolve,reject)=>{
       this.http.get<ApiResponse>('https://api.github.com/users/'+ searchName + '/repos?access_token=' + environment.access_token).toPromise().then(
-        result =>{
-          this.repo = result;
+        results =>{
+          this.repo = results;
           console.log(this.repo)
           resolve();
 
